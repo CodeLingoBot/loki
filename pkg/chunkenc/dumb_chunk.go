@@ -49,7 +49,7 @@ func (c *dumbChunk) Size() int {
 	return len(c.entries)
 }
 
-// Returns an iterator that goes from _most_ recent to _least_ recent (ie,
+// Iterator returns an iterator that goes from _most_ recent to _least_ recent (ie,
 // backwards).
 func (c *dumbChunk) Iterator(from, through time.Time, direction logproto.Direction) (iter.EntryIterator, error) {
 	i := sort.Search(len(c.entries), func(i int) bool {

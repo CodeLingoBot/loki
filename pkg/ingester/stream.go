@@ -102,7 +102,7 @@ func (s *stream) Push(_ context.Context, entries []logproto.Entry) error {
 	return appendErr
 }
 
-// Returns an iterator.
+// Iterator returns an iterator.
 func (s *stream) Iterator(from, through time.Time, direction logproto.Direction) (iter.EntryIterator, error) {
 	iterators := make([]iter.EntryIterator, 0, len(s.chunks))
 	for _, c := range s.chunks {
